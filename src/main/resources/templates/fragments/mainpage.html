@@ -1,0 +1,32 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<tbody>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary" th:fragment="navbar">
+        <div class="container">
+            <a href="/" class="navbar-brand" th:text="${page == 'duck'} ? #{nav.duck} : #{navbar.title}"></a>
+            <div class="me-auto navbar-nav">
+                <a th:href="@{/}" class="nav-link" th:classappend="${page == 'about'} ? active : ''"
+                    th:text="${page == 'duck'} ? #{duck} : #{navbar.link.about}" />
+                <a th:href="@{/projects}" class="nav-link" th:classappend="${page == 'projects'} ? active : ''"
+                    th:text="${page == 'duck'} ? #{duck} : #{navbar.link.projects}" />
+                <a th:href="@{/contact}" class="nav-link" th:classappend="${page == 'contact'} ? active : ''"
+                    th:text="${page == 'duck'} ? #{duck} : #{navbar.link.contact}" />
+                <a th:if="${page == 'duck'}" th:href="@{/duck}" class="nav-link active" th:text="#{duck}" />
+            </div>
+        </div>
+    </nav>
+    <div class="fixed-bottom" th:fragment="footer">
+        <div class="container">
+            <div class="justify-content-md-center row">
+                <div class="col-md-auto">[<a href="https://github.com/juanmuscaria/mainpage">Src</a>]</div>
+                <div class="col-md-auto">[<a href="https://juanmuscaria.com/">juanmuscaria</a><a class="ant-spin-text"
+                        th:href="@{/duck}">©</a>2022]</div>
+                <div class="col-md-auto">[<a href="https://github.com/juanmuscaria">Github</a>]</div>
+            </div>
+        </div>
+    </div>
+</tbody>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Juanmuscaria's website" />
+    <title th:text="#{title.contact}">title</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+
+<body>
+    <div class="crt crtFlick bg-dark text-primary">
+        <div th:replace="fragments/mainpage :: navbar" />
+        <div class="pt-5 container">
+            <p style="text-align: center;" th:text="#{page.contact}"></p>
+            <div class="g-4 row row-cols-md-2 row-cols-1">
+                <div class="col">
+                    <div class="card bg-secondary">
+                        <div class="card-body">
+                            <div class="card-title h5">E-Mail</div>
+                            <a class="card-link"
+                                href="mailto:juanmuscaria+dotcom@gmail.com">juanmuscaria+dotcom@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card bg-secondary">
+                        <div class="card-body">
+                            <div class="card-title h5">Telegram</div>
+                            <a class="card-link" href="https://t.me/juanmuscaria">@juanmuscaria</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div th:replace="fragments/mainpage :: footer" />
+    </div>
+</body>
+
+</html>

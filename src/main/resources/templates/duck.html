@@ -1,0 +1,33 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Juanmuscaria's website" />
+  <title th:text="#{title.duck}">title</title>
+  <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+
+<body>
+  <div class="crt crtFlick bg-dark text-primary">
+    <div th:replace="fragments/mainpage :: navbar" />
+    <div style="margin: 0px auto; text-align: center;">
+      <h1 th:text="#{duck}"></h1>
+      <video autoplay="" loop="" src="https://media.juanmuscaria.com/duck.mp4"></video>
+      <video autoplay="" loop="" src="https://media.juanmuscaria.com/duck.mp4"></video>
+      <video autoplay="" loop="" src="https://media.juanmuscaria.com/duck.mp4"></video>
+      <video autoplay="" loop="" src="https://media.juanmuscaria.com/duck.mp4"></video>
+      <video autoplay="" loop="" src="https://media.juanmuscaria.com/duck.mp4"></video>
+      <video autoplay="" loop="" src="https://media.juanmuscaria.com/duck.mp4"></video>
+      <video autoplay="" loop="" src="https://media.juanmuscaria.com/duck.mp4"></video>
+      <video autoplay="" loop="" src="https://media.juanmuscaria.com/duck.mp4"></video>
+      <video autoplay="" loop="" src="https://media.juanmuscaria.com/duck.mp4"></video>
+    </div>
+    <div th:replace="fragments/mainpage :: footer" />
+  </div>
+</body>
+
+</html>

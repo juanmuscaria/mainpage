@@ -1,0 +1,46 @@
+$dark: #0a0603;
+$secondary: #140c06;
+$primary: #ffc80c;
+$light: $primary;
+$navbar-dark-color: $primary;
+$navbar-dark-brand-color: $primary;
+$navbar-dark-brand-hover-color: $primary;
+$navbar-dark-hover-color: $primary;
+$navbar-dark-active-color: #f8842a;
+
+@import 'bootstrap/bootstrap.scss'; // probably there's a better way to do this, not sure though
+@import './crt.scss';
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url("fonts/JetBrainsMono-ExtraBold.woff2") format("woff2");
+}
+
+body {
+  margin: 0;
+  font-family: "JetBrains Mono";
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+body {
+  background-color: $dark;
+}
+
+html {
+  background-color: $dark
+}
+
+.page {
+  height: 50vh
+}
+
+.makeGlowText {
+  text-shadow: 0 0 10px rgba(255, 155, 9 ,1)
+}
