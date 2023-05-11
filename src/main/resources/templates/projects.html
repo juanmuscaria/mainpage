@@ -12,9 +12,9 @@
 </head>
 
 <body>
-    <div class="crt crtFlick bg-dark text-primary">
+    <div class="crt crtFlick bg-dark text-primary pageDisplay">
         <div th:replace="fragments/mainpage :: navbar" />
-        <div class="pt-4 container">
+        <div class="pt-4 container content">
             <div class="g-4 row row-cols-md-2 row-cols-1">
                 <tr th:each="project: ${projects}">
                     <div class="col">

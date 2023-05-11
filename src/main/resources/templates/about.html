@@ -11,10 +11,10 @@
     <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 
-<tbody>
-    <div class="crt crtFlick bg-dark text-primary">
+<body>
+    <div class="crt crtFlick bg-dark text-primary pageDisplay">
         <div th:replace="fragments/mainpage :: navbar" />
-        <div class="pt-5 container">
+        <div class="pt-5 container content">
             <div class="row">
                 <div class="col">
                     <p style="text-align: center;" th:text="#{page.about.paragraph.one}"></p>
@@ -24,6 +24,6 @@
         </div>
         <div th:replace="fragments/mainpage :: footer" />
     </div>
-</tbody>
+</body>
 
 </html>

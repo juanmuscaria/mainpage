@@ -18,10 +18,15 @@ $navbar-dark-active-color: #f8842a;
 
 body {
   margin: 0;
+  padding: 0;
   font-family: "JetBrains Mono";
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body, html {
+  height: 100%;
 }
 
 code {
@@ -37,10 +42,18 @@ html {
   background-color: $dark
 }
 
-.page {
-  height: 50vh
-}
-
 .makeGlowText {
   text-shadow: 0 0 10px rgba(255, 155, 9 ,1)
+}
+
+.content {
+  flex-grow: 1;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.pageDisplay {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
