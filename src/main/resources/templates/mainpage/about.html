@@ -1,0 +1,24 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <th:block th:include="fragments/mainpage :: head-metadata"/>
+</head>
+
+<body>
+<div class="crt crtFlick bg-dark text-primary pageDisplay">
+    <div th:replace="fragments/mainpage :: navbar"/>
+    <div class="pt-5 container content">
+        <div class="row">
+            <div class="col">
+                <p style="text-align: center;" th:text="#{page.about.paragraph.one}"></p>
+                <p style="text-align: center;" th:text="#{page.about.paragraph.two}"></p>
+            </div>
+        </div>
+    </div>
+    <div th:replace="fragments/mainpage :: footer"/>
+</div>
+</body>
+
+</html>

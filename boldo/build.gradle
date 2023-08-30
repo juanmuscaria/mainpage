@@ -1,0 +1,56 @@
+plugins {
+    id 'java'
+    id 'org.teavm' version '0.8.1'
+    id 'io.miret.etienne.sass' version '1.5.0'
+    id 'com.juanmuscaria.tooling.npm' /* because sometimes we need to make our own tools */
+}
+
+group = 'com.juanmuscaria.web'
+version = '0.0.1-SNAPSHOT'
+description = "Because I'm too stubborn to use JavaScript and NPM"
+
+java {
+    sourceCompatibility = '17'
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+teavm {
+    all {
+        mainClass = "com.juanmuscaria.web.boldo.Client"
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly(teavm.libs.jso)
+    compileOnly(teavm.libs.jsoApis)
+
+    /* NPM plugin will serve all npm modules as 'org.npmjs:<@scope/name>:<version>', if
+    * io.miret.etienne.sass is present it will also extract and include sass files into the sass compilation */
+    compileOnly("org.npmjs:bootstrap:5.3.1")
+}
+
+compileSass {
+    outputDir = file("$buildDir/generated/sass")
+}
+
+/* Include all the generated horrors into our final product */
+tasks.jar.dependsOn(tasks.generateJavaScript)
+tasks.jar.dependsOn(tasks.compileSass)
+
+jar {
+    from("$buildDir/generated/sass") {
+        into "static/css"
+    }
+    from("$buildDir/generated/teavm") {
+        into "static"
+    }
+}

@@ -13,5 +13,5 @@ import java.util.Map;
 @ConfigurationProperties
 @Getter
 public class AppConfig {
-    private final Map<String, String> projects = new LinkedHashMap<>();
+  private final Map<String, String> projects = new LinkedHashMap<>();
 }

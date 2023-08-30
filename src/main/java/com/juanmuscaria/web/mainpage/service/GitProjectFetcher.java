@@ -5,6 +5,6 @@ import org.springframework.lang.NonNull;
 
 public interface GitProjectFetcher {
 
-    @NonNull
-    ProjectInfo fetch(String gitUser, String projectId);
+  @NonNull
+  ProjectInfo fetch(String gitUser, String projectId);
 }

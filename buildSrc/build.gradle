@@ -1,0 +1,29 @@
+plugins {
+    id 'groovy-gradle-plugin'
+}
+
+repositories {
+    gradlePluginPortal()
+    mavenCentral()
+    maven { url = 'https://maven.minecraftforge.net/' }
+}
+
+dependencies {
+    implementation 'org.orienteer.jnpm:jnpm:1.5'
+
+    // Use compile only to not leak it into the runtime classpath and cause wack issues
+    compileOnly 'io.miret.etienne.sass:io.miret.etienne.sass.gradle.plugin:1.5.0'
+
+    // Gradle dependency resolution is a blackbox :(
+    implementation 'net.minecraftforge:artifactural:3.0.14'
+    implementation 'net.minecraftforge:unsafe:0.2.0'
+}
+
+gradlePlugin {
+    plugins {
+        npm {
+            id = 'com.juanmuscaria.tooling.npm'
+            implementationClass = 'com.juanmuscaria.tooling.npm.NpmPlugin'
+        }
+    }
+}
