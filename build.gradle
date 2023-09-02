@@ -1,3 +1,5 @@
+import org.springframework.boot.gradle.tasks.run.BootRun
+
 plugins {
     id 'java'
     /* there's no peace, only */ id 'war'
@@ -45,10 +47,26 @@ dependencies {
     implementation 'com.github.ben-manes.caffeine:caffeine:3.1.1'
     implementation 'org.kohsuke:github-api:1.308'
 
+    // Markdown stuff (TODO: organize this?)
+    var commonMarkVersion = '0.21.0'
+    implementation "org.commonmark:commonmark:${commonMarkVersion}"
+    implementation "org.commonmark:commonmark-ext-task-list-items:${commonMarkVersion}"
+    implementation "org.commonmark:commonmark-ext-image-attributes:${commonMarkVersion}"
+    implementation "org.commonmark:commonmark-ext-gfm-tables:${commonMarkVersion}"
+    implementation "org.commonmark:commonmark-ext-gfm-strikethrough:${commonMarkVersion}"
+    implementation "org.commonmark:commonmark-ext-ins:${commonMarkVersion}"
+    implementation "org.commonmark:commonmark-ext-heading-anchor:${commonMarkVersion}"
+    implementation "org.commonmark:commonmark-ext-autolink:${commonMarkVersion}"
+
     // Client code and assets
     implementation(project(":boldo"))
 }
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+bootRun {
+    sourceResources sourceSets.main
+    args += ['--spring.profiles.active=dev']
 }

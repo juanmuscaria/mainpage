@@ -11,15 +11,9 @@ $navbar-dark-active-color: #f8842a;
 @import 'bootstrap/bootstrap.scss'; // probably there's a better way to do this, not sure though
 @import './crt.scss';
 
-@font-face {
-  font-family: 'JetBrains Mono';
-  src: url("fonts/JetBrainsMono-ExtraBold.woff2") format("woff2");
-}
-
 body {
   margin: 0;
   padding: 0;
-  font-family: "JetBrains Mono";
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

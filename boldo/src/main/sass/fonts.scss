@@ -1,0 +1,16 @@
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url("fonts/JetBrainsMono-ExtraBold.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: 'twemoji';
+    src: url('fonts/emojis.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+  font-family: 'twemoji', 'JetBrains Mono';
+}

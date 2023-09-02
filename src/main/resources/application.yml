@@ -5,3 +5,7 @@ projects:
   "NotSoLegacyWorkspace-Gradle-Groovy": "juanmuscaria"
   "blockheads-patch": "juanmuscaria"
   "uncode": "juanmuscaria"
+  "microcord": "juanmuscaria"
+  # note about dots, put them in []
+  "[.github]": "AutoArchives"
+  "PraesidiumEvolutionis": "cruciblemc"

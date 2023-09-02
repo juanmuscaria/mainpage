@@ -1,0 +1,6 @@
+# Dev disable all caching
+spring:
+  cache:
+    type: NONE
+  thymeleaf:
+    cache: false

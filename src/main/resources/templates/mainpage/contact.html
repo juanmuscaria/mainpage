@@ -3,21 +3,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <th:block th:include="fragments/mainpage :: head-metadata"/>
+    <th:block th:insert="~{fragments/mainpage :: head-metadata}"/>
 </head>
 
 <body>
 <div class="crt crtFlick bg-dark text-primary pageDisplay">
-    <div th:replace="fragments/mainpage :: navbar"/>
+    <div th:replace="~{fragments/mainpage :: navbar}"/>
     <div class="pt-5 container content">
         <p style="text-align: center;" th:text="#{page.contact}"></p>
-        <div class="g-4 row row-cols-md-2 row-cols-1">
+        <div class="g-2 row row-cols-md-3 row-cols-1">
             <div class="col">
                 <div class="card bg-secondary">
                     <div class="card-body text-primary">
                         <div class="card-title h5">E-Mail</div>
                         <a class="card-link"
-                           href="mailto:juanmuscaria+dotcom@gmail.com">juanmuscaria+dotcom@gmail.com</a>
+                           href="mailto:contact@juanmuscaria.com">contact@juanmuscaria.com</a>
                     </div>
                 </div>
             </div>
@@ -29,9 +29,17 @@
                     </div>
                 </div>
             </div>
+            <div class="col">
+                <div class="card bg-secondary text-primary">
+                    <div class="card-body">
+                        <div class="card-title h5">Discord</div>
+                        <div class="card-link" juanmuscaria:markdown="'[![Discord](https://img.shields.io/discord/454062295505567744?style=flat-square&logo=discord&logoColor=%235865F2&label=discord&color=%235865F2)](https://discord.juanmuscaria.com/)'"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div th:replace="fragments/mainpage :: footer"/>
+    <div th:replace="~{fragments/mainpage :: footer}"/>
 </div>
 </body>
 

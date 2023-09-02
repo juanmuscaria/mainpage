@@ -3,12 +3,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <th:block th:include="fragments/mainpage :: head-metadata"/>
+    <th:block th:insert="~{fragments/mainpage :: head-metadata}"/>
 </head>
 
 <body>
 <div class="crt crtFlick bg-dark text-primary pageDisplay">
-    <div th:replace="fragments/mainpage :: navbar"/>
+    <div th:replace="~{fragments/mainpage :: navbar}"/>
     <div style="margin: 0px auto; text-align: center;">
         <h1 th:text="#{duck}"></h1>
         <video autoplay="" loop="" src="https://media.juanmuscaria.com/duck.mp4"></video>
@@ -21,7 +21,7 @@
         <video autoplay="" loop="" src="https://media.juanmuscaria.com/duck.mp4"></video>
         <video autoplay="" loop="" src="https://media.juanmuscaria.com/duck.mp4"></video>
     </div>
-    <div th:replace="fragments/mainpage :: footer"/>
+    <div th:replace="~{fragments/mainpage :: footer}"/>
 </div>
 </body>
 
