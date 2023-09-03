@@ -24,9 +24,9 @@ import java.util.Map;
 
 @Controller
 @Configuration
-@RequestMapping(MainPageController.MAINPAGE_BASE_PATH)
+@RequestMapping(MainPageController.BASE_PATH)
 public class MainPageController implements WebMvcConfigurer {
-  static final String MAINPAGE_BASE_PATH = "/main";
+  static final String BASE_PATH = "/main";
 
   @Autowired
   private GitProjectFetcher fetcher;
@@ -35,7 +35,7 @@ public class MainPageController implements WebMvcConfigurer {
 
   @ModelAttribute("baseUrl")
   public String addBaseUrl() {
-    return MAINPAGE_BASE_PATH;
+    return BASE_PATH;
   }
 
   @GetMapping

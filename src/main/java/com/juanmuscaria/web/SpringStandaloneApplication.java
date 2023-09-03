@@ -1,13 +1,13 @@
-package com.juanmuscaria.web.mainpage;
+package com.juanmuscaria.web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MainPageApplication {
+public class SpringStandaloneApplication {
 
   public static void main(String[] args) {
-    SpringApplication.run(MainPageApplication.class, args);
+    SpringApplication.run(SpringStandaloneApplication.class, args);
   }
 
 }

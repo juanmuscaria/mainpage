@@ -7,7 +7,6 @@ import org.commonmark.ext.gfm.tables.TablesExtension;
 import org.commonmark.ext.heading.anchor.HeadingAnchorExtension;
 import org.commonmark.ext.image.attributes.ImageAttributesExtension;
 import org.commonmark.ext.ins.InsExtension;
-import org.commonmark.ext.ins.internal.InsTextContentNodeRenderer;
 import org.commonmark.ext.task.list.items.TaskListItemsExtension;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
@@ -38,8 +37,8 @@ public class MarkdownAttributeProcessor extends AbstractStandardExpressionAttrib
 
   @Override
   protected void doProcess(final ITemplateContext context, final IProcessableElementTag tag,
-    final AttributeName attributeName, final String attributeValue,
-    final Object expressionResult, final IElementTagStructureHandler structureHandler) {
+                           final AttributeName attributeName, final String attributeValue,
+                           final Object expressionResult, final IElementTagStructureHandler structureHandler) {
 
     var html = renderer.render(markdownParser.parse(expressionResult.toString()));
     structureHandler.setBody(html, false);

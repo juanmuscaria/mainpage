@@ -13,7 +13,7 @@ public class IndexController implements WebMvcConfigurer {
   @GetMapping("/")
   public String viewIndex(Model model) {
     model.addAttribute("page", "crt");
-    return "redirect:" + MainPageController.MAINPAGE_BASE_PATH;
+    return "redirect:" + MainPageController.BASE_PATH;
   }
 
   @Override
