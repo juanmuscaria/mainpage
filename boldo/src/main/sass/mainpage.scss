@@ -10,6 +10,7 @@ $navbar-dark-active-color: #f8842a;
 
 @import 'bootstrap/bootstrap.scss'; // probably there's a better way to do this, not sure though
 @import './crt.scss';
+@import './fonts.scss';
 
 body {
   margin: 0;
@@ -23,9 +24,8 @@ body, html {
   height: 100%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: 'Twitter Color Emoji', 'JetBrains Mono';
 }
 
 body {

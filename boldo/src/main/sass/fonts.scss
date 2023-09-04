@@ -1,16 +1,320 @@
 @font-face {
-  font-family: 'JetBrains Mono';
-  src: url("fonts/JetBrainsMono-ExtraBold.woff2") format("woff2");
+    font-family: 'JetBrains Mono';
+    src: url('/fonts/jetbrains_mono/JetBrainsMono-SemiBoldItalic.woff2') format('woff2'),
+        url('/fonts/jetbrains_mono/JetBrainsMono-SemiBoldItalic.woff') format('woff'),
+        url('/fonts/jetbrains_mono/JetBrainsMono-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
 }
 
 @font-face {
-    font-family: 'twemoji';
-    src: url('fonts/emojis.woff2') format('woff2');
+    font-family: 'JetBrains Mono';
+    src: url('/fonts/jetbrains_mono/JetBrainsMono-ThinItalic.woff2') format('woff2'),
+        url('/fonts/jetbrains_mono/JetBrainsMono-ThinItalic.woff') format('woff'),
+        url('/fonts/jetbrains_mono/JetBrainsMono-ThinItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/fonts/jetbrains_mono/JetBrainsMono-Thin.woff2') format('woff2'),
+        url('/fonts/jetbrains_mono/JetBrainsMono-Thin.woff') format('woff'),
+        url('/fonts/jetbrains_mono/JetBrainsMono-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/fonts/jetbrains_mono/JetBrainsMono-Light.woff2') format('woff2'),
+        url('/fonts/jetbrains_mono/JetBrainsMono-Light.woff') format('woff'),
+        url('/fonts/jetbrains_mono/JetBrainsMono-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/fonts/jetbrains_mono/JetBrainsMono-Medium.woff2') format('woff2'),
+        url('/fonts/jetbrains_mono/JetBrainsMono-Medium.woff') format('woff'),
+        url('/fonts/jetbrains_mono/JetBrainsMono-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/fonts/jetbrains_mono/JetBrainsMono-Regular.woff2') format('woff2'),
+        url('/fonts/jetbrains_mono/JetBrainsMono-Regular.woff') format('woff'),
+        url('/fonts/jetbrains_mono/JetBrainsMono-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
-body {
-  font-family: 'twemoji', 'JetBrains Mono';
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/fonts/jetbrains_mono/JetBrainsMono-SemiBold.woff2') format('woff2'),
+        url('/fonts/jetbrains_mono/JetBrainsMono-SemiBold.woff') format('woff'),
+        url('/fonts/jetbrains_mono/JetBrainsMono-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
 }
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/fonts/jetbrains_mono/JetBrainsMono-MediumItalic.woff2') format('woff2'),
+        url('/fonts/jetbrains_mono/JetBrainsMono-MediumItalic.woff') format('woff'),
+        url('/fonts/jetbrains_mono/JetBrainsMono-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/fonts/jetbrains_mono/JetBrainsMono-LightItalic.woff2') format('woff2'),
+        url('/fonts/jetbrains_mono/JetBrainsMono-LightItalic.woff') format('woff'),
+        url('/fonts/jetbrains_mono/JetBrainsMono-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/fonts/jetbrains_mono/JetBrainsMono-ExtraBold.woff2') format('woff2'),
+        url('/fonts/jetbrains_mono/JetBrainsMono-ExtraBold.woff') format('woff'),
+        url('/fonts/jetbrains_mono/JetBrainsMono-ExtraBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/fonts/jetbrains_mono/JetBrainsMono-BoldItalic.woff2') format('woff2'),
+        url('/fonts/jetbrains_mono/JetBrainsMono-BoldItalic.woff') format('woff'),
+        url('/fonts/jetbrains_mono/JetBrainsMono-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/fonts/jetbrains_mono/JetBrainsMono-ExtraLightItalic.woff2') format('woff2'),
+        url('/fonts/jetbrains_mono/JetBrainsMono-ExtraLightItalic.woff') format('woff'),
+        url('/fonts/jetbrains_mono/JetBrainsMono-ExtraLightItalic.ttf') format('truetype');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/fonts/jetbrains_mono/JetBrainsMono-ExtraLight.woff2') format('woff2'),
+        url('/fonts/jetbrains_mono/JetBrainsMono-ExtraLight.woff') format('woff'),
+        url('/fonts/jetbrains_mono/JetBrainsMono-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/fonts/jetbrains_mono/JetBrainsMono-ExtraBoldItalic.woff2') format('woff2'),
+        url('/fonts/jetbrains_mono/JetBrainsMono-ExtraBoldItalic.woff') format('woff'),
+        url('/fonts/jetbrains_mono/JetBrainsMono-ExtraBoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/fonts/jetbrains_mono/JetBrainsMono-Italic.woff2') format('woff2'),
+        url('/fonts/jetbrains_mono/JetBrainsMono-Italic.woff') format('woff'),
+        url('/fonts/jetbrains_mono/JetBrainsMono-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/fonts/jetbrains_mono/JetBrainsMono-Bold.woff2') format('woff2'),
+        url('/fonts/jetbrains_mono/JetBrainsMono-Bold.woff') format('woff'),
+        url('/fonts/jetbrains_mono/JetBrainsMono-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pixel Operator SC';
+    src: url('/fonts/pixel_operator/PixelOperatorSC.woff2') format('woff2'),
+        url('/fonts/pixel_operator/PixelOperatorSC.woff') format('woff'),
+        url('/fonts/pixel_operator/PixelOperatorSC.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pixel Operator SC';
+    src: url('/fonts/pixel_operator/PixelOperatorSC-Bold.woff2') format('woff2'),
+        url('/fonts/pixel_operator/PixelOperatorSC-Bold.woff') format('woff'),
+        url('/fonts/pixel_operator/PixelOperatorSC-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pixel Operator Mono 8';
+    src: url('/fonts/pixel_operator/PixelOperatorMono8-Bold.woff2') format('woff2'),
+        url('/fonts/pixel_operator/PixelOperatorMono8-Bold.woff') format('woff'),
+        url('/fonts/pixel_operator/PixelOperatorMono8-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pixel Operator Mono HB 8';
+    src: url('/fonts/pixel_operator/PixelOperatorMonoHB8.woff2') format('woff2'),
+        url('/fonts/pixel_operator/PixelOperatorMonoHB8.woff') format('woff'),
+        url('/fonts/pixel_operator/PixelOperatorMonoHB8.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pixel Operator 8';
+    src: url('/fonts/pixel_operator/PixelOperator8-Bold.woff2') format('woff2'),
+        url('/fonts/pixel_operator/PixelOperator8-Bold.woff') format('woff'),
+        url('/fonts/pixel_operator/PixelOperator8-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pixel Operator Mono 8';
+    src: url('/fonts/pixel_operator/PixelOperatorMono8.woff2') format('woff2'),
+        url('/fonts/pixel_operator/PixelOperatorMono8.woff') format('woff'),
+        url('/fonts/pixel_operator/PixelOperatorMono8.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pixel Operator HB SC';
+    src: url('/fonts/pixel_operator/PixelOperatorHBSC.woff2') format('woff2'),
+        url('/fonts/pixel_operator/PixelOperatorHBSC.woff') format('woff'),
+        url('/fonts/pixel_operator/PixelOperatorHBSC.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pixel Operator Mono';
+    src: url('/fonts/pixel_operator/PixelOperatorMono-Bold.woff2') format('woff2'),
+        url('/fonts/pixel_operator/PixelOperatorMono-Bold.woff') format('woff'),
+        url('/fonts/pixel_operator/PixelOperatorMono-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pixel Operator HB';
+    src: url('/fonts/pixel_operator/PixelOperatorHB.woff2') format('woff2'),
+        url('/fonts/pixel_operator/PixelOperatorHB.woff') format('woff'),
+        url('/fonts/pixel_operator/PixelOperatorHB.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pixel Operator Mono';
+    src: url('/fonts/pixel_operator/PixelOperatorMono.woff2') format('woff2'),
+        url('/fonts/pixel_operator/PixelOperatorMono.woff') format('woff'),
+        url('/fonts/pixel_operator/PixelOperatorMono.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pixel Operator HB 8';
+    src: url('/fonts/pixel_operator/PixelOperatorHB8.woff2') format('woff2'),
+        url('/fonts/pixel_operator/PixelOperatorHB8.woff') format('woff'),
+        url('/fonts/pixel_operator/PixelOperatorHB8.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pixel Operator 8';
+    src: url('/fonts/pixel_operator/PixelOperator8.woff2') format('woff2'),
+        url('/fonts/pixel_operator/PixelOperator8.woff') format('woff'),
+        url('/fonts/pixel_operator/PixelOperator8.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pixel Operator Mono HB';
+    src: url('/fonts/pixel_operator/PixelOperatorMonoHB.woff2') format('woff2'),
+        url('/fonts/pixel_operator/PixelOperatorMonoHB.woff') format('woff'),
+        url('/fonts/pixel_operator/PixelOperatorMonoHB.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pixel Operator';
+    src: url('/fonts/pixel_operator/PixelOperator-Bold.woff2') format('woff2'),
+        url('/fonts/pixel_operator/PixelOperator-Bold.woff') format('woff'),
+        url('/fonts/pixel_operator/PixelOperator-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pixel Operator';
+    src: url('/fonts/pixel_operator/PixelOperator.woff2') format('woff2'),
+        url('/fonts/pixel_operator/PixelOperator.woff') format('woff'),
+        url('/fonts/pixel_operator/PixelOperator.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Twitter Color Emoji';
+    src: url('/fonts/twemoji_color_font/TwitterColorEmojiSVGinOT.woff2') format('woff2'),
+        url('/fonts/twemoji_color_font/TwitterColorEmojiSVGinOT.woff') format('woff'),
+        url('/fonts/twemoji_color_font/TwitterColorEmojiSVGinOT.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
