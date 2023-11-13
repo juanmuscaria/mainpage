@@ -8,8 +8,16 @@ repositories {
     maven { url = 'https://maven.minecraftforge.net/' }
 }
 
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
 dependencies {
     implementation 'org.orienteer.jnpm:jnpm:1.5'
+
+    annotationProcessor 'org.projectlombok:lombok:1.18.28'
 
     // Use compile only to not leak it into the runtime classpath and cause wack issues
     compileOnly 'io.miret.etienne.sass:io.miret.etienne.sass.gradle.plugin:1.5.0'

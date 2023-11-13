@@ -20,9 +20,9 @@ configurations {
 }
 
 teavm {
-    all {
-        mainClass = "com.juanmuscaria.web.boldo.Client"
-    }
+    all.mainClass.set("com.juanmuscaria.web.boldo.Client")
+    js.sourceMap.set(true)
+    js.debugInformation.set(true)
 }
 
 repositories {
@@ -33,9 +33,17 @@ dependencies {
     compileOnly(teavm.libs.jso)
     compileOnly(teavm.libs.jsoApis)
 
-    /* NPM plugin will serve all npm modules as 'org.npmjs:<@scope/name>:<version>', if
+    /* NPM plugin will serve all npm modules as 'org.npmjs:<scope/name>:<version>', if
     * io.miret.etienne.sass is present it will also extract and include sass files into the sass compilation */
     compileOnly("org.npmjs:bootstrap:5.3.1")
+    compileOnly("org.npmjs:purecss:3.0.0")
+    compileOnly("org.npmjs:normalize.css:8.0.1")
+    compileOnly("org.npmjs:xterm:5.3.0")
+    compileOnly("org.npmjs:material-icons/svg:1.0.33")
+
+    compileOnly 'org.projectlombok:lombok:1.18.28'
+    implementation 'info.picocli:picocli:4.7.5'
+    annotationProcessor 'org.projectlombok:lombok:1.18.28'
 }
 
 compileSass {
@@ -43,14 +51,31 @@ compileSass {
 }
 
 /* Include all the generated horrors into our final product */
-tasks.jar.dependsOn(tasks.generateJavaScript)
-tasks.jar.dependsOn(tasks.compileSass)
-
-jar {
+processResources {
+    dependsOn(tasks.named("compileSass"))
+    dependsOn(tasks.named('unpackNpmCss'))
+    dependsOn(tasks.named('unpackNpmJs'))
+    dependsOn(tasks.named('unpackNpmSvg'))
     from("$buildDir/generated/sass") {
         into "static/css"
     }
+    from("$buildDir/generated/css") {
+        into "static/css"
+    }
+    from("$buildDir/generated/js") {
+        into "static/js"
+    }
+    from("$buildDir/generated/svg") {
+        into "static"
+    }
+}
+
+jar {
+    dependsOn(tasks.generateJavaScript)
     from("$buildDir/generated/teavm") {
         into "static"
+    }
+    from(sourceSets.main.java.srcDirs) {
+        into "static/js/src"
     }
 }

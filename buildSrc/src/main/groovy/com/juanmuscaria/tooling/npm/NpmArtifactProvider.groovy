@@ -35,14 +35,14 @@ class NpmArtifactProvider implements ArtifactProvider<ArtifactIdentifier> {
                     .downloadDirectory(baseTarDir)
                     .build())
         }
-        this.downloadDirField = JNPMSettings.getDeclaredField("downloadDirectory");
+        this.downloadDirField = JNPMSettings.getDeclaredField("downloadDirectory")
     }
 
     @Override
     Artifact getArtifact(ArtifactIdentifier info) {
         try {
             if (info.group == NPM_GROUP && info.extension == "jar") {
-                project.logger.warn("requested npm package {} as jar", info)
+                project.logger.debug("requested npm package {} as jar", info)
                 var type = ArtifactType.BINARY
                 if (info.getClassifier() != null && info.getClassifier().endsWith("sources"))
                     type = ArtifactType.SOURCE
@@ -60,15 +60,16 @@ class NpmArtifactProvider implements ArtifactProvider<ArtifactIdentifier> {
                     case "":
                         var pkgName = info.name.contains('/') ? '@' + info.name : info.name
                         var npmInfo = JNPMService.instance().getVersionInfo(pkgName, info.version)
-                        var localJar = Path.of(project.buildDir.path, "npm", info.toString() + ".jar")
+                        var localJar = Path.of(project.buildDir.path, "npm", info.toString().replace('/', '_') + ".jar")
                         var downloadDir = baseTarDir.resolve(info.name)
 
+                        // FIXME: This works around the fact JNPM does not make distinction between namespaced npm packages and normal npm packages
                         Files.createDirectories(downloadDir)
                         UnsafeHacks.setField(downloadDirField, JNPMService.instance().settings, downloadDir)
 
                         npmInfo.downloadTarball().blockingAwait()
                         Files.createDirectories(localJar.getParent())
-                        project.logger.warn(npmInfo.getLocalTarball().path)
+                        project.logger.debug(npmInfo.getLocalTarball().path)
 
                         Files.write(localJar, convert(npmInfo.getLocalTarball()))
                         return StreamableArtifact.ofFile(info, type, localJar.toFile())
@@ -91,9 +92,7 @@ class NpmArtifactProvider implements ArtifactProvider<ArtifactIdentifier> {
     static byte[] convert(File tarFile) throws IOException {
         ByteArrayOutputStream jarBytes = new ByteArrayOutputStream()
 
-        try (var fileIn = new FileInputStream(tarFile)
-             var gzipIn = new GzipCompressorInputStream(fileIn)
-             var tarIn = new TarArchiveInputStream(gzipIn)
+        try (var tarIn = new TarArchiveInputStream(new GzipCompressorInputStream(new FileInputStream(tarFile)))
              var jarOut = new JarOutputStream(jarBytes)) {
 
             TarArchiveEntry entry

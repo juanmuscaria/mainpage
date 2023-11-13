@@ -1,0 +1,2 @@
+[![YouTube Channel](https://img.shields.io/youtube/channel/subscribers/UC_QJJ-Qw2QEAGGUI9btAZmw?style=flat-square&logo=youtube&logoColor=%23FF0000&label=YouTube&color=%23FF0000)](https://www.youtube.com/@juanmuscaria) <
+Random stuff I feel like recording at the moment

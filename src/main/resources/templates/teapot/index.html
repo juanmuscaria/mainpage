@@ -1,0 +1,142 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:juanmuscaria="http://www.w3.org/1999/xhtml" lang="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/purecss/pure-min.css">
+    <link rel="stylesheet" type="text/css" href="/css/purecss/grids-responsive-min.css">
+    <!-- *only* include utilities and shortcut classes for padding and spacing-->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-utilities.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/teapot.css">
+    <script type="text/javascript" charset="utf-8" src="/js/boldo.js"></script>
+    <title>Abort trap: 6 (core dumped)</title>
+    <!--    <link rel="icon" type="image/svg+xml" th:href="${teapot.randomSvgIcon()}">-->
+</head>
+
+<body onload="main(['teapot/index'])">
+<div id="page-body" class="crt">
+    <div class="header">
+        <nav class="pure-menu pure-menu-horizontal pure-menu-scrollable fs-4">
+            <a href="" class="pure-menu-heading pure-menu-link">[INDEX]></a>
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item">
+                    <a href="#about" class="pure-menu-link">[ABOUT]</a>
+                </li>
+                <li class="pure-menu-item">
+                    <a href="#projects" class="pure-menu-link">[PROJECTS]</a>
+                </li>
+                <li class="pure-menu-item">
+                    <a href="#social" class="pure-menu-link">[SOCIAL]</a>
+                </li>
+                <!--                <li class="pure-menu-item">-->
+                <!--                    <a href="/blog" class="pure-menu-link">[BLOG™️]</a>-->
+                <!--                </li>-->
+            </ul>
+        </nav>
+    </div>
+    <div class="pure-g page-content mx-5 fs-5">
+        <div class="pure-u-1 anchor backdrop my-3 px-3 text-break mt-4" id="about">
+            <div>
+                <h1>About</h1>
+                <hr>
+                <div juanmuscaria:markdown="#{teapot.about}"></div>
+            </div>
+        </div>
+        <div class="pure-u-1 anchor backdrop my-3 px-3 pb-3 text-break" id="projects">
+            <h1>Projects</h1>
+            <hr>
+            <!-- reusable project card, use if false to prevent evaluation and addition of the fragments into the page -->
+            <th:block th:if="${false}">
+                <div th:fragment="project-card" class="pure-u-1 pure-u-md-1-2 pure-u-xxxl-1-4 d-flex">
+                    <div class="flex-fill d-flex m-3">
+                        <div class="card flex-fill p-3 text-break d-flex flex-column">
+                            <div class="fs-3" th:text="${projects[index].displayName}"></div>
+                            <hr class="pure-u-1">
+                            <div class="fs-5 ms-3 my-2" th:text="${projects[index].description}"></div>
+                            <div class="mt-auto pt-4">
+                                <a th:href="'https://github.com/' + ${projects[index].owner} + '/' + ${projects[index].id}">GitHub</a>
+                                <div class="fs-4 mt-2"
+                                     th:text="'[' + ${projects[index].lang} + '] [Stars:' + ${projects[index].stars} + '] [Forks:' + ${projects[index].forks} +']'"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </th:block>
+
+            <!-- Pair loop through projects -->
+            <div class="pure-g">
+                <th:block th:each="index : ${#numbers.sequence(0, projects.size() - 1, 2)}">
+                    <th:block th:insert="~{:: project-card}"></th:block>
+
+                    <!-- Check if there's a second element in the pair -->
+                    <th:block th:if="${index < projects.size() - 1}" th:with="index=${index + 1}">
+                        <th:block th:insert="~{:: project-card}"></th:block>
+                    </th:block>
+                </th:block>
+            </div>
+        </div>
+        <div class="pure-u-1 anchor backdrop my-3 px-3 text-break" id="social">
+            <h1>Social</h1>
+            <hr>
+            <th:block th:if="${false}">
+                <div th:fragment="social-card" class="pure-u-1 pure-u-md-1-2 pure-u-xxxl-1-3 d-flex">
+                    <div class="flex-fill d-flex m-3">
+                        <div class="card flex-fill p-3 text-break d-flex flex-column">
+                            <div class="flex-row d-flex align-items-end">
+                                <div class="me-2" th:if="${cardIcon != null}" th:utext="${cardIcon}"></div>
+                                <div class="fs-3" th:text="${cardName}"></div>
+                            </div>
+                            <hr class="pure-u-1">
+                            <div class="fs-4 my-2" juanmuscaria:markdown="${cardContent}"></div>
+                        </div>
+                    </div>
+                </div>
+            </th:block>
+
+            <div class="pure-g">
+                <th:block th:with="cardName=${'E-Mail'}, cardContent=#{teapot.cards.email},
+                                cardIcon=${teapot.readResource('/static/material-icons@svg/svg/mail/outline.svg')}"
+                          th:insert="~{:: social-card}"></th:block>
+                <th:block th:with="cardName=${'Telegram'}, cardContent=#{teapot.cards.telegram},
+                                cardIcon=${teapot.readResource('/static/material-icons@svg/svg/telegram/outline.svg')}"
+                          th:insert="~{:: social-card}"></th:block>
+                <th:block th:with="cardName=${'Discord'}, cardContent=#{teapot.cards.discord},
+                                cardIcon=${teapot.readResource('/static/material-icons@svg/svg/discord/outline.svg')}"
+                          th:insert="~{:: social-card}"></th:block>
+                <th:block th:with="cardName=${'YouTube'}, cardContent=#{teapot.cards.youtube},
+                                cardIcon=${teapot.readResource('/static/material-icons@svg/svg/videocam/outline.svg')}"
+                          th:insert="~{:: social-card}"></th:block>
+            </div>
+        </div>
+        <footer class="pure-u-1 anchor mb-3 px-3">
+            <div class="pure-g text-nowrap">
+                <div class="pure-u-1 py-1 d-flex justify-content-center">
+                    [<a href="https://juanmuscaria.com/">juanmuscaria©️2022-2023</a>]
+                </div>
+                <div class="pure-u-1 py-1 d-flex justify-content-center align-items-center secret-tag anchor" id="duck">
+                    Made with&nbsp;<a class="fs-3" href="#">☺</a>
+                </div>
+                <div class="pure-u-1 py-1 d-flex justify-content-center align-items-center secret-tag-vanish">
+                    Made with&nbsp;<a class="fs-3" href="#duck">☺</a>
+                </div>
+                <div class="pure-u-1 anchor backdrop secret-tag secret-tag-sibling">
+                    <div class="pure-g p-3">
+                        <p class="pure-u-1">
+                            Duck
+                        </p>
+                        <video class="pure-u-1 pure-u-md-1-2" th:each="i : ${#numbers.sequence(1, 10)}" autoplay=""
+                               loop="" src="https://media.juanmuscaria.com/duck.mp4"></video>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+</body>
+
+</html>

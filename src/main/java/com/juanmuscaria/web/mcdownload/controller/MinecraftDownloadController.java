@@ -32,6 +32,6 @@ public class MinecraftDownloadController {
       return ResponseEntity.status(HttpStatus.MOVED_PERMANENTLY)
         .header(HttpHeaders.LOCATION, provider.jarUrl(version, file.startsWith("minecraft_server."))).build();
     }
-    return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
   }
 }

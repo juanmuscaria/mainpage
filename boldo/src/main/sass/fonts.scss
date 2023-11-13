@@ -318,3 +318,32 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'VT323';
+    src: url('/fonts/vt323/VT323-Regular.woff2') format('woff2'),
+        url('/fonts/vt323/VT323-Regular.woff') format('woff'),
+        url('/fonts/vt323/VT323-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Fixedsys Excelsior';
+    src: url('/fonts/fixedsys_excelsior/FixedsysExcelsiorIIIb.woff2') format('woff2'),
+        url('/fonts/fixedsys_excelsior/FixedsysExcelsiorIIIb.woff') format('woff'),
+        url('/fonts/fixedsys_excelsior/FixedsysExcelsiorIIIb.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PxPlus IBM VGA8';
+    src: url('/fonts/px_plus_ibm_vga8/PxPlus_IBM_VGA8.woff2') format('woff2'),
+        url('/fonts/px_plus_ibm_vga8/PxPlus_IBM_VGA8.woff') format('woff'),
+        url('/fonts/px_plus_ibm_vga8/PxPlus_IBM_VGA8.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

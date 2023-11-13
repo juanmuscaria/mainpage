@@ -1,4 +1,4 @@
-package com.juanmuscaria.web.mainpage.templating;
+package com.juanmuscaria.web.templating;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

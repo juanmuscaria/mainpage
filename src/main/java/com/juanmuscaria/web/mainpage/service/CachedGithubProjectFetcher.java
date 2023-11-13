@@ -19,18 +19,18 @@ public class CachedGithubProjectFetcher implements GitProjectFetcher {
 
   @Override
   @NonNull
-  public ProjectInfo fetch(String gitUser, String projectId) {
-    var project = infoCache.getIfPresent(gitUser + '/' + projectId);
+  public ProjectInfo fetch(String org, String projectId) {
+    var project = infoCache.getIfPresent(org + '/' + projectId);
     if (project != null) {
       return project;
     }
     try {
       var github = GitHub.connectAnonymously();
-      var repo = github.getRepository(gitUser + '/' + projectId);
-      project = new ProjectInfo(gitUser, projectId, repo.getName(), repo.getDescription(), repo.getLanguage(), repo.getStargazersCount(), repo.getForksCount());
-      infoCache.put(gitUser + '/' + projectId, project);
+      var repo = github.getRepository(org + '/' + projectId);
+      project = new ProjectInfo(org, projectId, repo.getName(), repo.getDescription(), repo.getLanguage(), repo.getStargazersCount(), repo.getForksCount());
+      infoCache.put(org + '/' + projectId, project);
     } catch (IOException e) {
-      project = new ProjectInfo(gitUser, projectId, projectId, "Unable to connect to connect to github :(",
+      project = new ProjectInfo(org, projectId, projectId, "Unable to connect to connect to github :(",
         "X", -1, -1);
     }
 

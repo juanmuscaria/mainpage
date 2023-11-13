@@ -1,0 +1,70 @@
+@use "sass:map"
+
+$frame-count: 40
+$frame-data: ()
+
+@for $i from 0 to $frame-count
+  $current-frame: 0
+  @if $i != 0
+    $current-frame: calc(($i*100)/$frame-count)
+    $frame-data: map.set($frame-data, $current-frame, ("firstShift": #{random(4)*random()}, "secondShift": #{(random(4)*random())*-1}))
+
+@keyframes textFlick
+  @each $current-frame, $frame in $frame-data
+    #{$current-frame}%
+      text-shadow: #{map.get($frame, "firstShift")}px 0 5px rgba(0, 0, 0, 0.5), #{map.get($frame, "secondShift")}px 0 10px rgba(255, 155, 9, 1), 0 0 3px
+  100% 
+      text-shadow: 5px 0 1px rgba(0,0,0,0.5), -5px 0 1px rgba(255, 155, 9 ,0.5), 0 0 3px
+
+@keyframes elementFlick
+  @each $current-frame, $frame in $frame-data
+    #{$current-frame}%
+      filter: drop-shadow(#{map.get($frame, "firstShift")}px 0 2px rgba(0, 0, 0, 0.5)) drop-shadow(#{map.get($frame, "secondShift")}px 0 4px rgba(255, 155, 9, 1)) drop-shadow(0 0 1px)
+
+  100%
+      filter: drop-shadow(5px 0 1px rgba(0, 0, 0, 0.5)) drop-shadow(-5px 0 1px rgba(255, 155, 9, 0.5)) drop-shadow(0 0 3px)
+
+@keyframes flicker
+  @for $i from 0 to $frame-count
+    $current-frame: 0
+    @if $i != 0
+      $current-frame: calc(($i*100)/$frame-count)
+
+    #{$current-frame}%
+      opacity: #{random()}
+
+  100%
+      opacity: 0.8
+
+.crt::after
+  content: " "
+  display: block
+  position: fixed
+  top: 0
+  left: 0
+  bottom: 0
+  right: 0
+  background: rgba(18, 16, 16, 0.1)
+  opacity: 0
+  z-index: 2
+  pointer-events: none
+  animation: flicker 0.2s infinite
+
+.crt::before
+  content: " "
+  display: block
+  position: fixed
+  top: 0
+  left: 0
+  bottom: 0
+  right: 0
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06))
+  z-index: 2
+  background-size: 100% 4px, 6px 100%
+  pointer-events: none
+
+.crt
+  animation: textFlick 4s infinite
+
+  & svg
+    animation: elementFlick 4s infinite

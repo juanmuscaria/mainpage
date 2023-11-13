@@ -12,8 +12,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class IndexController implements WebMvcConfigurer {
   @GetMapping("/")
   public String viewIndex(Model model) {
-    model.addAttribute("page", "crt");
-    return "redirect:" + MainPageController.BASE_PATH;
+    return "redirect:" + TeapotController.BASE_PATH;
   }
 
   @Override

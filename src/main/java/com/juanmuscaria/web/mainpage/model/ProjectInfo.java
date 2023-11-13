@@ -1,83 +1,24 @@
 package com.juanmuscaria.web.mainpage.model;
 
-import java.util.Objects;
+import lombok.With;
 
-public final class ProjectInfo {
-  private final String owner;
-  private final String id;
-  private final String displayName;
-  private final String description;
-  private final String lang;
-  private final int stars;
-  private final int forks;
-
-  public ProjectInfo(String owner, String id, String displayName, String description, String lang, int stars, int forks) {
-    this.owner = owner;
-    this.id = id;
-    this.displayName = displayName;
-    this.description = description;
-    this.lang = lang;
-    this.stars = stars;
-    this.forks = forks;
-  }
-
-  public String owner() {
-    return owner;
-  }
-
-  public String id() {
-    return id;
-  }
-
-  public String displayName() {
-    return displayName;
-  }
-
-  public String description() {
-    return description;
-  }
-
-  public String lang() {
-    return lang;
-  }
-
-  public int stars() {
-    return stars;
-  }
-
-  public int forks() {
-    return forks;
-  }
+@With
+public record ProjectInfo(String owner, String id, String displayName, String description, String lang, int stars,
+                          int forks) {
 
   @Override
-  public boolean equals(Object obj) {
-    if (obj == this) return true;
-    if (obj == null || obj.getClass() != this.getClass()) return false;
-    var that = (ProjectInfo) obj;
-    return Objects.equals(this.owner, that.owner) &&
-      Objects.equals(this.id, that.id) &&
-      Objects.equals(this.displayName, that.displayName) &&
-      Objects.equals(this.description, that.description) &&
-      Objects.equals(this.lang, that.lang) &&
-      this.stars == that.stars &&
-      this.forks == that.forks;
+  public boolean equals(Object other) {
+    if (this == other) return true;
+    if (other instanceof ProjectInfo that) {
+      return owner.equals(that.owner) && id.equals(that.id);
+    }
+    return false;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(owner, id, displayName, description, lang, stars, forks);
+    int result = owner.hashCode();
+    result = 31 * result + id.hashCode();
+    return result;
   }
-
-  @Override
-  public String toString() {
-    return "ProjectInfo[" +
-      "owner=" + owner + ", " +
-      "id=" + id + ", " +
-      "displayName=" + displayName + ", " +
-      "description=" + description + ", " +
-      "lang=" + lang + ", " +
-      "stars=" + stars + ", " +
-      "forks=" + forks + ']';
-  }
-
 }

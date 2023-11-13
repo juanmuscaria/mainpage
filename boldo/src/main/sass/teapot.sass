@@ -1,0 +1,84 @@
+$dark: #0a0603
+$secondary: #140c06
+$primary: #ffc80c
+
+@import './crtEffect.sass'
+
+@font-face
+  font-family: 'PxPlus IBM VGA8'
+  src: url('/fonts/px_plus_ibm_vga8/PxPlus_IBM_VGA8.woff2') format("woff2"), url('/fonts/px_plus_ibm_vga8/PxPlus_IBM_VGA8.woff') format("woff"), url('/fonts/px_plus_ibm_vga8/PxPlus_IBM_VGA8.ttf') format("truetype")
+  font-weight: normal
+  font-style: normal
+  font-display: swap
+
+:root
+  scroll-behavior: smooth
+
+body
+  margin: 0
+  padding: 0
+
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  font-family: 'PxPlus IBM VGA8'
+
+body, html
+  height: 100%
+  background-color: $dark
+
+a
+  color: lighten($primary, 5%)
+  text-decoration: underline
+
+code
+  font-family: 'Twitter Color Emoji', 'JetBrains Mono', monospaced
+
+h1
+  margin: .4em 0
+
+path
+  fill: currentColor
+
+#page-body
+  color: $primary
+
+.pure-menu-link, .pure-menu-heading
+  color: $primary
+  padding: .5em .6em
+
+.pure-menu-active > .pure-menu-link, .pure-menu-link:focus, .pure-menu-link:hover
+  background-color: lighten($secondary, 5%)
+
+.backdrop
+  background-color: lighten($secondary, 1%)
+  box-shadow: 1ch 1ch 0 0 #000
+
+.pure-menu-horizontal
+  background-color: $secondary
+
+.header
+  position: -webkit-sticky // Safari 
+  position: sticky
+  top: 0
+
+.pure-menu-horizontal.pure-menu-scrollable
+  padding: 0 0
+
+.card
+  background-color: lighten($secondary, 3%)
+  box-shadow: 1ch 1ch 0 0 #000
+
+.anchor
+  scroll-margin-top: 70px
+
+.secret-tag
+  display: none !important
+
+  &:target
+    display: flex !important
+
+  &:target ~ &-sibling
+    display: unset !important
+
+  &:target ~ &-vanish
+    display: none !important

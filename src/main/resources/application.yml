@@ -9,3 +9,19 @@ projects:
   # note about dots, put them in []
   "[.github]": "AutoArchives"
   "PraesidiumEvolutionis": "cruciblemc"
+teapot:
+  projects:
+    "juanmuscaria":
+      "DSMFramework":
+      "javactl":
+      "NotSoLegacyWorkspace-Gradle-Groovy":
+      "blockheads-patch":
+      "uncode":
+      "microcord":
+      "mainpage":
+    "cruciblemc":
+      "Crucible":
+      "PraesidiumEvolutionis":
+    "AutoArchives":
+      "[.github]":
+        displayName: "GithubArchiver"
