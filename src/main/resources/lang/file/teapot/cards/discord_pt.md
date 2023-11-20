@@ -1,0 +1,2 @@
+[![Discord](https://img.shields.io/discord/454062295505567744?style=flat-square&logo=discord&logoColor=%235865F2&label=discord&color=%235865F2)](https://discord.juanmuscaria.com/) <
+Minha rede de servidores minecraft

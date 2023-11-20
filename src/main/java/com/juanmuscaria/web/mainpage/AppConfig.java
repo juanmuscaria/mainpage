@@ -13,6 +13,7 @@ import org.springframework.context.support.ReloadableResourceBundleMessageSource
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
+import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -48,6 +49,7 @@ public class AppConfig {
             var bundle = new ReloadableResourceBundleMessageSource();
             bundle.setBasename("lang/teapot-messages");
             bundle.setParentMessageSource(root);
+            bundle.setDefaultEncoding(StandardCharsets.UTF_8.name());
             root = bundle;
           }
           return root;

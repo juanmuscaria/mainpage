@@ -22,16 +22,16 @@
 <div id="page-body" class="crt">
     <div class="header">
         <nav class="pure-menu pure-menu-horizontal pure-menu-scrollable fs-4">
-            <a href="" class="pure-menu-heading pure-menu-link">[INDEX]></a>
+            <a href="" class="pure-menu-heading pure-menu-link" th:text="#{teapot.nav.heading}"></a>
             <ul class="pure-menu-list">
                 <li class="pure-menu-item">
-                    <a href="#about" class="pure-menu-link">[ABOUT]</a>
+                    <a href="#about" class="pure-menu-link" th:text="#{teapot.nav.link.about}"></a>
                 </li>
                 <li class="pure-menu-item">
-                    <a href="#projects" class="pure-menu-link">[PROJECTS]</a>
+                    <a href="#projects" class="pure-menu-link" th:text="#{teapot.nav.link.projects}"></a>
                 </li>
                 <li class="pure-menu-item">
-                    <a href="#social" class="pure-menu-link">[SOCIAL]</a>
+                    <a href="#social" class="pure-menu-link" th:text="#{teapot.nav.link.social}"></a>
                 </li>
                 <!--                <li class="pure-menu-item">-->
                 <!--                    <a href="/blog" class="pure-menu-link">[BLOG™️]</a>-->
@@ -42,13 +42,13 @@
     <div class="pure-g page-content mx-5 fs-5">
         <div class="pure-u-1 anchor backdrop my-3 px-3 text-break mt-4" id="about">
             <div>
-                <h1>About</h1>
+                <h1 th:text="#{teapot.about.title}"></h1>
                 <hr>
                 <div juanmuscaria:markdown="#{teapot.about}"></div>
             </div>
         </div>
         <div class="pure-u-1 anchor backdrop my-3 px-3 pb-3 text-break" id="projects">
-            <h1>Projects</h1>
+            <h1 th:text="#{teapot.projects.title}"></h1>
             <hr>
             <!-- reusable project card, use if false to prevent evaluation and addition of the fragments into the page -->
             <th:block th:if="${false}">
@@ -81,7 +81,7 @@
             </div>
         </div>
         <div class="pure-u-1 anchor backdrop my-3 px-3 text-break" id="social">
-            <h1>Social</h1>
+            <h1 th:text="#{teapot.social.title}"></h1>
             <hr>
             <th:block th:if="${false}">
                 <div th:fragment="social-card" class="pure-u-1 pure-u-md-1-2 pure-u-xxxl-1-3 d-flex">
@@ -119,16 +119,16 @@
                     [<a href="https://juanmuscaria.com/">juanmuscaria©️2022-2023</a>]
                 </div>
                 <div class="pure-u-1 py-1 d-flex justify-content-center align-items-center secret-tag anchor" id="duck">
-                    Made with&nbsp;<a class="fs-3" href="#">☺</a>
+                    <th:block th:text="#{teapot.footer.duck}"></th:block>&nbsp;<a class="fs-3" href="#">☺</a>
                 </div>
                 <div class="pure-u-1 py-1 d-flex justify-content-center align-items-center secret-tag-vanish">
-                    Made with&nbsp;<a class="fs-3" href="#duck">☺</a>
+                    <th:block th:text="#{teapot.footer.duck}"></th:block>&nbsp;<a class="fs-3" href="#duck">☺</a>
                 </div>
                 <div class="pure-u-1 anchor backdrop secret-tag secret-tag-sibling">
                     <div class="pure-g p-3">
-                        <p class="pure-u-1">
-                            Duck
-                        </p>
+                        <h1 class="pure-u-1" th:text="#{teapot.duck.title}"></h1>
+                        <div class="pure-u-1" juanmuscaria:markdown="#{teapot.duck}"></div>
+                        <hr class="pure-u-1">
                         <video class="pure-u-1 pure-u-md-1-2" th:each="i : ${#numbers.sequence(1, 10)}" autoplay=""
                                loop="" src="https://media.juanmuscaria.com/duck.mp4"></video>
                     </div>
